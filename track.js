@@ -8,7 +8,7 @@ let isVideo = false;
 let model = null;
 
 const modelParams = {
-    flipHorizontal: false,   // flip e.g for video  
+    flipHorizontal: true,   // flip e.g for video  
     maxNumBoxes: 10,        // maximum number of boxes to detect
     iouThreshold: 0.5,      // ioU threshold for non-max suppression
     scoreThreshold: 0.6,    // confidence threshold for predictions.
@@ -16,7 +16,7 @@ const modelParams = {
 
 function startVideo() {
     handTrack.startVideo(video).then(function (status) {
-        console.log("video started", status);
+        // console.log("video started", status);
         if (status) {
             updateNote.innerText = "Video pokrenut...pratim te.."
             isVideo = true
@@ -43,7 +43,7 @@ function toggleVideo() {
 
 function runDetection() {
     model.detect(video).then(predictions => {
-        console.log("Predictions: ", predictions);
+        // console.log("Predictions: ", predictions);
         model.renderPredictions(predictions, canvas, context, video);
         if (isVideo) {
             requestAnimationFrame(runDetection);
