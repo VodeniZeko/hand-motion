@@ -55,6 +55,6 @@ function runDetection() {
 handTrack.load(modelParams).then(lmodel => {
     // detect objects in the image.
     model = lmodel
-    updateNote.innerText = "Started!"
+    updateNote.innerText = "Ready!"
     trackButton.disabled = false
 });
