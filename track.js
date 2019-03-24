@@ -18,7 +18,7 @@ function startVideo() {
     handTrack.startVideo(video).then(function (status) {
         // console.log("video started", status);
         if (status) {
-            updateNote.innerText = "Video pokrenut...pratim te.."
+            updateNote.innerText = "Video on...tracking.."
             isVideo = true
             runDetection()
         } else {
@@ -29,13 +29,13 @@ function startVideo() {
 
 function toggleVideo() {
     if (!isVideo) {
-        updateNote.innerText = "Pokrecem video"
+        updateNote.innerText = "Starting video"
         startVideo();
     } else {
-        updateNote.innerText = "Zaustavljam video"
+        updateNote.innerText = "Stopping video"
         handTrack.stopVideo(video)
         isVideo = false;
-        updateNote.innerText = "Video zaustavljen"
+        updateNote.innerText = "Video Stopped"
     }
 }
 
@@ -55,6 +55,6 @@ function runDetection() {
 handTrack.load(modelParams).then(lmodel => {
     // detect objects in the image.
     model = lmodel
-    updateNote.innerText = "Pokrenut!"
+    updateNote.innerText = "Started!"
     trackButton.disabled = false
 });
